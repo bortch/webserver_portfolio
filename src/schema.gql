@@ -1,0 +1,82 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Allowed languages are en, fr, nl"""
+enum AllowedLanguage {
+  """English"""
+  en
+
+  """Français"""
+  fr
+
+  """Nederlands"""
+  nl
+}
+
+type AuthResponse {
+  message: String!
+  success: Boolean!
+  user: User
+}
+
+input CreateUserInput {
+  email: String!
+  language: AllowedLanguage
+  password: String!
+  salt: String
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  register(user: CreateUserInput!): AuthResponse!
+  removeUser(id: Int!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Query {
+  """Login"""
+  login(email: String!, password: String!): AuthResponse!
+
+  """Get user by username"""
+  user(username: String!): User!
+
+  """Get user by id"""
+  user_by_id(id: String!): User!
+}
+
+input UpdateUserInput {
+  _id: String!
+  email: String
+  language: AllowedLanguage
+  password: String
+  salt: String
+  username: String
+}
+
+type User {
+  """The user id"""
+  _id: String!
+
+  """The user access token"""
+  accessToken: String
+  accessTokenExpiresAt: DateTime!
+
+  """The user email"""
+  email: String!
+
+  """The user language"""
+  language: String!
+
+  """The user password"""
+  password: String!
+  salt: String!
+
+  """The user username"""
+  username: String!
+}
