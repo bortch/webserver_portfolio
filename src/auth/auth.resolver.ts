@@ -7,10 +7,7 @@ import { AuthResponse } from './dto/auth.response';
 
 @Resolver(() => AuthResponse)
 export class AuthResolver {
-  constructor(
-    private readonly usersService: UsersService,
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   @Query(() => AuthResponse, { name: 'login', description: 'Login' })
   async login(

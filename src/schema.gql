@@ -2,16 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-"""Allowed languages are en, fr, nl"""
+"""Allowed languages are en, fr"""
 enum AllowedLanguage {
   """English"""
   en
 
   """Français"""
   fr
-
-  """Nederlands"""
-  nl
 }
 
 type AuthResponse {
